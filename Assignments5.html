@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jia Chen's web page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="Assignment5.css">
+  <script src="Assignment5.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1 class="custom-heading">Internet and Web Technologies</h1>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <div class="subnav">
+    <button class="subnavbtn" onclick="openNav()">Browser <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="#Navigator" onclick="jumpToNavigator()">Navigator</a>
+      <a href="#Window2" onclick="jumpToWindow()">Window</a>
+      <a href="#Location" onclick="jumpToLocation()">Location</a>
+      <a href="#Screen" onclick="jumpToScreen()">Screen</a>
+      <a href="#Geolocation" onclick="jumpToGeolocation()">Geolocation</a>
+    </div>
+  </div>
+  <a href="#Course" onclick="openNav()">Course</a>
+  <div class="subnav">
+    <button class="subnavbtn" onclick="openNav()">About <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="#Contact" onclick="jumpToContact()">Contact</a>
+      <a href="#Description" onclick="jumpToDescription()">Description</a>
+    </div>
+  </div>
+</div>
+
+  <!-- Browser-(1)-activate('Browser')-Navigator - appName, product, appVersion, userAgent, platform, language -->
+  <button class="accordion" id="Navigator" style="display: none;">Navigator</button>
+  <div class="panel" style="display: none;">
+    <p id="appName" class="custom-style"></p>
+    <p id="product" class="custom-style"></p>
+    <p id="appVersion" class="custom-style"></p>
+    <p id="userAgent" class="custom-style"></p>
+    <p id="platform" class="custom-style"></p>
+    <p id="language" class="custom-style"></p>
+  </div>
+  <script>
+
+
+    function jumpToNavigator() {
+      var navigatorButton = document.getElementById("Navigator");
+      var panel = document.querySelector(".panel");
+      navigatorButton.style.display = "block";
+      panel.style.display = "block";
+      document.getElementById("Navigator").click();
+    }
+    document.getElementById("Navigator").addEventListener("click", function () {
+      document.getElementById("appName").innerHTML = "AppName is " + navigator.appName;
+      document.getElementById("product").innerHTML = "Product is " + navigator.product;
+      document.getElementById("appVersion").innerHTML = "AppVersion is " + navigator.appVersion;
+      document.getElementById("userAgent").innerHTML = "UserAgent is " + navigator.userAgent;
+      document.getElementById("platform").innerHTML = "Platform is " + navigator.platform;
+      document.getElementById("language").innerHTML = "Language is " + navigator.language;
+
+    });
+  </script>
+
+  <!-- Browser-(2)Window - innerHeight, innerWidth -->
+  <button class="accordion" id="Window2" style="display: none;">Window</button>
+    <div class="panel" style="display: none;">
+      <p id="window" class="custom-style"></p>
+    </div>
+  <script>
+  function jumpToWindow() {
+    var windowButton = document.getElementById("Window2");
+    var windowPanel = document.querySelector(".panel");
+    windowButton.style.display = "block";
+    windowPanel.style.display = "block";
+  document.getElementById("Window2").click();
+  }
+
+    document.getElementById("Window2").addEventListener("click", function () {
+      var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      var x = document.getElementById("window");
+      x.innerHTML = "Browser inner window width: " + w + ", inner window height: " + h + ".";
+    });
+  </script>
+</div>
+
+<!-- Browser-(3)Screen - width, height, availWidth, availHeight, colorDepth, pixelDepth -->
+<button class="accordion" id="Screen" style="display: none;">Screen</button>
+<div class="panel" style="display: none;">
+    <p id="screenWidth" class="custom-style"></p>
+    <p id="screenHeight" class="custom-style"></p>
+    <p id="availScreenWidth" class="custom-style"></p>
+    <p id="availScreenHeight" class="custom-style"></p>
+    <p id="screenColorDepth" class="custom-style"></p>
+    <p id="screenPixelDepth" class="custom-style"></p>
+    <script>
+      function jumpToScreen() {
+            var screenButton = document.getElementById("Screen");
+            var screenpanel = document.querySelector(".panel");
+            screenButton.style.display = "block";
+            screenpanel.style.display = "block";
+            document.getElementById("Screen").click();
+        }
+      document.getElementById("Screen").addEventListener("click", function () {
+        document.getElementById("screenWidth").innerHTML = "Screen Width: " + screen.width;
+        document.getElementById("screenHeight").innerHTML = "Screen Height: " + screen.height;
+        document.getElementById("availScreenWidth").innerHTML = "Available Screen Width: " + screen.availWidth;
+        document.getElementById("availScreenHeight").innerHTML = "Available Screen Height: " + screen.availHeight;
+        document.getElementById("screenColorDepth").innerHTML = "Screen Color Depth: " + screen.colorDepth;
+        document.getElementById("screenPixelDepth").innerHTML = "Screen Pixel Depth: " + screen.pixelDepth;
+      });
+    </script>
+</div>
+<!-- Browser-(4)Location - href, hostname, pathname, protocol -->
+<button class="accordion" id="Location" style="display: none;">Location</button>
+  <div class="panel" style="display: none;">
+      <p id="locationHref" class="custom-style"></p>
+      <p id="locationHostname" class="custom-style">></p>
+      <p id="locationPathname" class="custom-style">></p>
+      <p id="locationProtocol" class="custom-style">></p>
+      <script>
+        function jumpToLocation() {
+            var screenButton = document.getElementById("Location");
+            var panel = document.querySelector(".panel");
+            screenButton.style.display = "block";
+            panel.style.display = "block";
+            document.getElementById("Location").click();
+        }
+        document.getElementById("locationHref").innerHTML = "Page locationHref is :" + window.location.href;
+        document.getElementById("locationHostname").innerHTML = "Page hostname is : " + window.location.hostname;
+        document.getElementById("locationPathname").innerHTML = "Page pathname is :" + window.location.pathname;
+        document.getElementById("locationProtocol").innerHTML = "Page protocol is :" + window.location.protocol;
+      </script>
+  </div>
+
+<!-- Browser-(5)Geolocation - Latitude, Longitude -->
+<button class="accordion" id="Geolocation" style="display: none;">Geolocation</button>
+  <div class="panel" style="display: none;">
+    <p id="latitudeInfo" class="custom-style">Please wait, loading...</p>
+    <p id="longitudeInfo" class="custom-style"></p>
+    <script>
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        document.getElementById("latitudeInfo").innerHTML = "Geolocation is not supported by this browser.";
+        document.getElementById("longitudeInfo").innerHTML = "Geolocation is not supported by this browser.";
+      }
+      function jumpToGeolocation() {
+            var screenButton = document.getElementById("Geolocation");
+            var panel = document.querySelector(".panel");
+
+            screenButton.style.display = "block";
+            panel.style.display = "block";
+            document.getElementById("Geolocation").click();
+
+        }
+        function showPosition(position) {
+          document.getElementById("latitudeInfo").innerHTML = "Latitude is: " + position.coords.latitude;
+          document.getElementById("longitudeInfo").innerHTML = " Longitude is: " + position.coords.longitude;
+        }
+    </script>
+  </div>
+
+<!-- Course[1] - with submenu items relevant to our course -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+  <a href="https://gaia.cs.umass.edu/kurose_ross/index.php">1.Kurose and Ross author/book page</a>
+  <a href="http://w3schools.com">2.W3Schools</a>
+  <a href="https://www.geeksforgeeks.org/web-development/">3.GeeksForGeeks</a>
+</div>
+<div id="main">
+</div>
+
+<!-- About[0]-Description of the developer of the page (i.e. you, the student) with optional photo -->
+ <button class="accordion" id="Description" style="display: none;" onclick="jumpToDescription()">Description of the developer</button>
+<div class="panel" style="display: none;">
+  <h2>Queens College student: Jia Chen</h2>
+  <div class="container">
+    <img src="IMG_3089.JPG" alt="Avatar" class="image">
+    <div class="overlay">
+      <div class="text">Jia Chen</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function jumpToDescription() {
+    var descriptionButton = document.getElementById("Description");
+    var panel = document.querySelector(".panel");
+    descriptionButton.style.display = "block";
+    panel.style.display = "block";
+    descriptionButton.click();
+  }
+</script>
+
+<!-- About[1]- Contact Me email form - see to contact you by email -->
+<button class="accordion" id="Contact" style="display: none;" onclick="jumpToContact()">Contact Me </button>
+<div class="panel" style="display: none;">
+  <h2>Contact Me email form</h2>
+  <form action="chenjialogo33cj@gmail.com" method="post" enctype="text/plain">
+    Name:<br>
+    <input type="text" name="name"><br>
+    E-mail:<br>
+    <input type="text" name="mail"><br>
+    Comment:<br>
+    <input type="text" name="comment" size="50"><br><br>
+    <input type="submit" value="Send">
+    <input type="reset" value="Reset">
+  </form>
+</div>
+
+<script>
+  function jumpToContact() {
+    var contactButton = document.getElementById("Contact");
+    var panel = document.querySelector(".panel");
+
+    contactButton.style.display = "block";
+    panel.style.display = "block";
+    contactButton.click();
+  }
+</script>
+
+<!-- home[1]-  -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:80px">Assignment 7 on CS355</h1>
+    <p style="font-size:30px">Click the "Course", "Browser" or "About" link to see the sub navigation menu.</p>
+  </div>
+</div>
+
+
+</body>
+</html>
